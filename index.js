@@ -28,32 +28,30 @@ app.get('/results', (req, res) => {
             const articles = [];
 
             $('.prismic-serialized-text', html).each(function () {
-                const lis = $(this).find('li'); // Select all <li> elements within the current .prismic-serialized-text element
-                let index = 0; // Counter to track the index
+                const lis = $(this).find('li');
+                let index = 0;
 
-                lis.each(function () { // Iterate over each <li> element
-                    if (index >= 0 && index <= 3) { // Check if the index falls within the range 4th - 7th item
-                        const text = $(this).text(); // Get the text content of the current <li> element
-                        const colonIndex = text.indexOf(':'); // Find the index of colon
-                        if (colonIndex !== -1) { // If colon exists
-                            const name = text.substring(colonIndex + 1).trim(); // Get text after colon
-                            const words = name.split(',').map(word => word.trim()); // Split by commas and remove extra spaces
-                            articles.push(...words); // Push each word individually
+                lis.each(function () {
+                    if (index >= 0 && index <= 3) {
+                        const text = $(this).text();
+                        const colonIndex = text.indexOf(':');
+                        if (colonIndex !== -1) {
+                            const name = text.substring(colonIndex + 1).trim();
+                            const words = name.split(',').map(word => word.trim());
+                            articles.push(...words);
                             console.log(words);
                         }
                     }
-                    index++; // Increment the index counter
+                    index++;
                 });
             });
             
-            // Slice off the first 4 elements of the articles array
+     
              const strippedArticles = articles.slice(0);
              strippedArticles.splice(-16);
-            // Randomize the order of strippedArticles
             const randomizedArticles = shuffleArray(strippedArticles);
             
             res.json(randomizedArticles);
-            // console.log(randomizedArticles);
         }).catch(err => console.log(err));
 });
 

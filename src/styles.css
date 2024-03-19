@@ -8,6 +8,12 @@ body {
     background-color: rgb(179, 167, 254);
 }
 
+h1 {
+    font-family: "Caladea", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
 
 #feed {
     display: grid;
@@ -40,6 +46,12 @@ body {
 
 .item:hover {
     cursor: grab;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 
