@@ -1,0 +1,101 @@
+.feed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background-color: rgb(179, 167, 254);
+}
+
+
+#feed {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto auto;
+    gap: 5px;
+    row-gap: 5px;
+}
+
+.feed-mobile {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 5px;
+    row-gap: 5px;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(239, 239, 230);
+    border-radius: 4px;
+
+}
+
+.item:hover {
+    cursor: grab;
+}
+
+
+.item:active {
+    cursor: grabbing;
+}
+
+.guess-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 75px;
+}
+
+.box {
+    height: 150px;
+    width: 150px;
+    transition: .2s;
+    background-color: rgba(255, 255, 255, 0.364);
+}
+
+.dragging {
+    background-color: rgb(90, 89, 78);
+    color: white;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.guess-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+@media screen and (max-width: 900px) {
+    #feed {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    }
+
+
+@media screen and (max-width: 700px) {
+  .box, .item {
+    width: 75px;
+    height: 75px;
+  }
+
+  .item {
+    font-size: 10px;
+  }
+
+  .guess-container {
+    margin-bottom: 25px;
+  }
+    }
