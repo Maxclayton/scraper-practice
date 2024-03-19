@@ -45,12 +45,12 @@ app.get('/results', (req, res) => {
                     index++;
                 });
             });
-            
-     
-             const strippedArticles = articles.slice(0);
-             strippedArticles.splice(-16);
+
+
+            const strippedArticles = articles.slice(0);
+            strippedArticles.splice(-16);
             const randomizedArticles = shuffleArray(strippedArticles);
-            
+
             res.json(randomizedArticles);
         }).catch(err => console.log(err));
 });
